@@ -19,6 +19,8 @@
           </td>
           <td>
             <%= member.name %>
+            <%= member.active_member %>
+
           </td>
           <td>
             <%= link_to team_member_path(member), method: :delete, data: { confirm: "Are you sure?" }, class: "logout" do %>
