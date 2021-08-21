@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'surprise', to: 'pages#surprise'
 
   resources :teams do
-    resources :members, only: [:new, :create, :destroy]
+    resources :members, only: [:new, :create, :update, :destroy]
   end
 
   resources :selections, only: [:new, :create, :edit, :update]

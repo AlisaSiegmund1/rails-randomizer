@@ -2,45 +2,50 @@
   <div class="col-lg-8 col-md-8 col-sm-12 justify-content-center d-flex">
     <div class="content-container justify-content-center">
       <% if @team.member_ids.empty? %>
-      <p>YOUR TEAM DOESN'T HAVE ANY MEMBERS JET...</p>
-      <div class="btn-black">
-        <%= link_to "ADD MEMBER", new_team_member_path(@team) %>
-      </div>
-
+        <p>YOUR TEAM DOESN'T HAVE ANY MEMBERS JET...</p>
+        <div class="btn-black">
+          <%= link_to "ADD MEMBER", new_team_member_path(@team) %>
+        </div>
       <% else %>
-      <table style="margin-bottom: 20px">
-        <% count = 0 %>
-        <% @members.each do |member| %>
-        <% if member.team_id == @team.id %>
-        <% count = count + 1 %>
-        <tr>
-          <td style="padding-right: 10px">
-            <%= count %>.
-          </td>
-          <td>
-            <%= member.name %>
-            <%= member.active_member %>
+        <table style="margin-bottom: 20px">
+          <% @members.each_with_index do |member, index| %>
+          <% if member.team_id == @team.id %>
+            <tr>
+              <td style="padding-right: 10px">
+                <%= index + 1 %>.
+              </td>
+              <td>
+                <%= member.name %>
+              </td>
+              <td>
+                <%= simple_form_for ([@team, @members.find(member.id)]) do |f| %>
+                  <div class="details-one d-flex">
+                    <%= f.input :active_member, label: false%>
+<!--                     <%= f.submit "ADD", class: "btn-black", id:"next"%>
+ -->                <% end %>
+                  </div>
+              </td>
+              <td>
+                <%= link_to team_member_path(member), method: :delete, data: { confirm: "Are you sure?" }, class: "logout" do %>
+                  <span class="material-icons" style="font-size: 12px">
+                    clear
+                  </span>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+          <% end %>
+        </table>
+      <% end %>
 
-          </td>
-          <td>
-            <%= link_to team_member_path(member), method: :delete, data: { confirm: "Are you sure?" }, class: "logout" do %>
-              <span class="material-icons" style="font-size: 12px">
-                clear
-              </span>
-            <% end %>
-          </td>
-        <% end %>
-        </tr>
-        <% end %>
-      </table>
       <div class="btn-black">
-
         <%= link_to "ADD MEMBER", new_team_member_path(@team) %>
       </div>
-      <% end %>
+
     </div>
   </div>
 </div>
+
 
 
 
