@@ -17,6 +17,13 @@ class MembersController < ApplicationController
     end
   end
 
+  def update
+    set_team
+    @member = @team.members.find(member_params)
+    @member.update(member_params)
+    redirect_to team_path(@team)
+  end
+
 
   def destroy
     @member = Member.find(params["team_id"])
@@ -26,13 +33,13 @@ class MembersController < ApplicationController
   end
 
   def set_team
-    @team = Team.find(params[:id])
+    @team = Team.find(params[:team_id])
   end
 
   private
 
   def member_params
-    params.require(:member).permit(:name)
+    params.require(:member).permit(:name, :id, :active_member)
   end
 
 end
