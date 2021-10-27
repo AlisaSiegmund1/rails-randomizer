@@ -19,6 +19,7 @@ class MembersController < ApplicationController
 
   def update
     set_team
+    @member = @team.members.find(member_params)
     @member.update(member_params)
     redirect_to team_path(@team)
   end
@@ -38,7 +39,7 @@ class MembersController < ApplicationController
   private
 
   def member_params
-    params.require(:member).permit(:name, :active_member)
+    params.require(:member).permit(:name, :id, :active_member)
   end
 
 end
