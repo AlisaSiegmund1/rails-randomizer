@@ -18,13 +18,13 @@
                 <%= member.name %>
               </td>
               <td>
-                <%#= simple_form_for ([@team, @members.find(member.id)]) do |f| %>
-                  <!-- <div class="details-one d-flex"> -->
-                    <%#= f.check_box :active_member,onchange: 'Rails.fire(this.form, "submit")', class: "check_box_check" %>
-                    <%#= f.submit "ADD", class: "btn-black", id:"next"%>
+                <%= simple_form_for ([@team, @members.find(member.id)]) do |f| %>
+                  <div class="details-one d-flex">
+                    <%= f.check_box :active_member,onchange: 'Rails.fire(this.form, "submit")', class: "check_box_check" %>
+                    <%= f.submit "ADD", class: "btn-black", id:"next"%>
 
-                  <%# end %>
-                  <!-- </div> -->
+                  <% end %>
+                  </div>
               </td>
               <td>
                 <%= link_to team_member_path(member), method: :delete, data: { confirm: "Are you sure?" }, class: "logout" do %>
