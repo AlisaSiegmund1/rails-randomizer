@@ -19,7 +19,8 @@ class MembersController < ApplicationController
 
   def update
     set_team
-    @member = @team.members.find(member_params)
+    @member = @team.members.find(params["id"])
+
     @member.update(member_params)
     redirect_to team_path(@team)
   end

@@ -10,7 +10,9 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require rails-ujs
+= require rails-ujs
+= require jquery-rails
+
 //= require activestorage
 //= require turbolinks
 //= require_tree .
@@ -19,3 +21,22 @@
 var loader = document.querySelector('#mydiv')
 
 setTimeout(function() { loader.hidden = true; }, 2000);
+
+
+
+var check_boxes = document.querySelectorAll('.check_box')
+
+check_boxes.forEach( box => {
+  box.addEventListener('change', function() {
+    Rails.fire(this.form, "submit")
+  //   if (this.checked) {
+  //     console.log("Checkbox is checked..");
+  //   } else {
+  //     console.log("Checkbox is not checked..");
+  //   }
+  // })
+}
+
+);
+
+
