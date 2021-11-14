@@ -17,9 +17,9 @@
 //= require_tree .
 
 
-// var loader = document.querySelector('#mydiv');
+var loader = document.querySelector('#mydiv');
 
-// setTimeout(function() { loader.hidden = true; }, 2000);
+setTimeout(function() { loader.hidden = true; }, 2000);
 
 
 

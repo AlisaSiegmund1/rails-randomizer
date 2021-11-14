@@ -6,8 +6,8 @@ class PagesController < ApplicationController
   end
 
   def group
-    set_team
-    @members = @team.member_ids.shuffle
+    set_active_memeber
+    @members = @active_members.shuffle
     @groupsize = params[:group_by]
 
     if params[:group_by].blank?
@@ -18,8 +18,8 @@ class PagesController < ApplicationController
   end
 
   def order
-    set_team
-    @members = @team.member_ids.shuffle
+    set_active_memeber
+    @members = @active_members.shuffle
   end
 
   def pick
@@ -39,6 +39,19 @@ class PagesController < ApplicationController
       @team = Team.find(Selection.last.team_id)
     end
   end
+
+  def set_active_memeber
+    set_team
+    @members = @team.member_ids
+    @active_members = []
+
+    @members.each do |member|
+      if Member.find(member).active_member == true
+        @active_members << member
+      end
+    end
+  end
+
 
  def select_team
      @teams = Team.all.where(user: current_user)

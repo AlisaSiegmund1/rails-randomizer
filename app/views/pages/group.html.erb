@@ -17,12 +17,11 @@
           <li>
             <div class="d-flex">
               <% group.each do |member| %>
-              <div class="member" style="padding: 10px">
-                <%= Member.find(member).name%>
-              </div>
-              <% end %>
+                <div class="member" style="padding: 10px">
+                  <%= Member.find(member).name%>
+                </div>
+                <% end %>
             </li>
-
             <% end %>
           </div>
         </ol>
