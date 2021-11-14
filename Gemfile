@@ -48,7 +48,7 @@ gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'rails-ujs', '~> 0.1.0'
-gem 'jquery-rails'
+#gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'

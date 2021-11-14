@@ -27,7 +27,7 @@ class TeamsController < ApplicationController
   def show
     set_team
     @user = User.find(@team.user_id)
-    @members = Member.all
+    @members = Member.all.order('id ASC')
   end
 
   def edit

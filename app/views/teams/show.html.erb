@@ -20,10 +20,7 @@
               <td>
                 <%= simple_form_for ([@team, @members.find(member.id)]) do |f| %>
                   <div class="details-one d-flex">
-                    <%= f.check_box :active_member, class: "check_box", onchange: 'Rails.fire(this.form, "submit")' %>
-<!-- onchange: 'Rails.fire(this.form, "submit")' -->
-
-                    <%#= f.submit "SAVE", class: "btn-black", id:"next"%>
+                    <%= f.check_box :active_member, class: "check_box", onchange: 'this.form.submit();'%>
                   <% end %>
                   </div>
               </td>
