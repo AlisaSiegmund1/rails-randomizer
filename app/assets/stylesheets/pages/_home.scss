@@ -1,27 +1,56 @@
 // Specific CSS for your home-page
+.function-container {
+  display: flex;
+  flex-wrap: wrap;
+}
 
-.heading-1 {
+.function{
+  margin: 10px;
+  height: 215px;
+  width: 215px;
+  position: relative;
+  a {
     position: absolute;
-    top: 70px;
-    left: 85px;
+    top: 50%;
+    left: 50%;
+    color: black;
+    font-size: 25px;
+    font-weight: bolder;
+     -webkit-transition: all 2s ease;
   }
+}
 
-  .heading-2 {
-    position: absolute;
-    top: 70px;
-    left: 317px;
-  }
 
-  .heading-3 {
-    position: absolute;
-    top: 70px;
-    left: 562px;
+.function:hover {
+  a {
+    color: black;
+    text-decoration: none;
+    letter-spacing: 5px;
+
   }
- .heading-4 {
-    position: absolute;
-    top: 70px;
-    left: 765px;
-  }
+}
+// .heading-1 {
+//     position: absolute;
+//     top: 70px;
+//     left: 85px;
+//   }
+
+//   .heading-2 {
+//     position: absolute;
+//     top: 70px;
+//     left: 317px;
+//   }
+
+//   .heading-3 {
+//     position: absolute;
+//     top: 70px;
+//     left: 562px;
+//   }
+//  .heading-4 {
+//     position: absolute;
+//     top: 70px;
+//     left: 765px;
+//   }
 .function-container{
   margin-top: 70px;
 }
