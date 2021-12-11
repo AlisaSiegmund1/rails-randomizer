@@ -11,8 +11,8 @@
   position: relative;
   a {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 43%;
+    left: 30%;
     color: black;
     font-size: 25px;
     font-weight: bolder;
@@ -20,6 +20,13 @@
   }
 }
 
+#surprise {
+  a {
+    position: absolute;
+    top: 43%;
+    left: 20%;
+  }
+}
 
 .function:hover {
   a {
