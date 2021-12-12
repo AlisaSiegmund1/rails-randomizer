@@ -258,6 +258,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-18
+  x86_64-linux
 
 DEPENDENCIES
   autoprefixer-rails
@@ -296,5 +297,3 @@ RUBY VERSION
 BUNDLED WITH
    2.2.30
 
-bundle lock
-       --add-platform x86_64-linux
