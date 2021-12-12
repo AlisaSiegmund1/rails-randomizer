@@ -38,7 +38,7 @@ gem 'redis', '~> 4.0'
 #image host
 gem 'cloudinary', '~> 1.12.0'
 # protection of envs
-gem 'dotenv-rails', groups: [:development, :test]
+# gem 'dotenv-rails', groups: [:development, :test]
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
