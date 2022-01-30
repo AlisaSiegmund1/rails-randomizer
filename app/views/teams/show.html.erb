@@ -8,11 +8,14 @@
         </div>
       <% else %>
         <table style="margin-bottom: 20px">
-          <% @members.each_with_index do |member, index| %>
+          <% counter = 1 %>
+          <% @members.each_with_index do |member| %>
+
           <% if member.team_id == @team.id %>
             <tr>
               <td style="padding-right: 10px">
-                <%= index + 1 %>.
+                <%= counter %>.
+                <% counter += 1 %>
               </td>
               <td id="member-name">
                 <%= member.name %>
