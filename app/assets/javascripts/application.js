@@ -20,21 +20,3 @@
 var loader = document.querySelector('#mydiv');
 
 setTimeout(function() { loader.hidden = true; }, 2000);
-
-
-
-var check_boxes = document.querySelectorAll('.check_box');
-
-check_boxes.forEach( box => {
-  box.addEventListener('change', function() {
-    // Rails.fire(this.form, "submit")
-  //   if (this.checked) {
-  //     console.log("Checkbox is checked..");
-  //   } else {
-  //     console.log("Checkbox is not checked..");
-  //   }
-  // })
-})
-
-});
-
