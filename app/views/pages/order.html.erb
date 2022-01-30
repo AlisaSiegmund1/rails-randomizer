@@ -3,28 +3,31 @@
   <div class="col-lg-8 col-md-8 col-sm-12 justify-content-center d-flex">
 
     <div class="content-container justify-content-center">
-      <div style="text-align: center">
-       <!--  <span>[<%= @team.title %>]</span> -->
-        <p>NEW RANDOM ORDER: </p>
-      </div>
-      <ol>
-        <% @members.each do |member_id| %>
-        <li>
-          <%=Member.find(member_id).name %>
-        </li>
-        <% end %>
-      </ol>
+      <% if Team.all? %>
+      <p>You haven't created any teams yet</p>
+      <% else %>
+        <div style="text-align: center">
+         <!--  <span>[<%= @team.title %>]</span> -->
+          <p>NEW RANDOM ORDER: </p>
+        </div>
+        <ol>
+          <% @members.each do |member_id| %>
+          <li>
+            <%=Member.find(member_id).name %>
+          </li>
+          <% end %>
+        </ol>
 
-      <div class="btn-black">
-        <%= link_to "AGAIN", order_path %>
+        <div class="btn-black">
+          <%= link_to "AGAIN", order_path %>
 
-      </div>
+        </div>
 
-      <div class="loader-wrapper flex-column" id="mydiv">
-        <p>GENERATING NEW ORDER</p>
-        <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
-      </div>
-
+        <div class="loader-wrapper flex-column" id="mydiv">
+          <p>GENERATING NEW ORDER</p>
+          <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
