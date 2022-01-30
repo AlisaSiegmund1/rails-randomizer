@@ -6,25 +6,31 @@ class PagesController < ApplicationController
   end
 
   def group
-    set_active_memeber
-    @members = @active_members.shuffle
-    @groupsize = params[:group_by]
+    set_active_member
+    if @team == nil?
+      @members = @active_members.shuffle
+      @groupsize = params[:group_by]
 
-    if params[:group_by].blank?
-    @groups = []
-    else
-    @groups = @members.each_slice(@groupsize.to_i).to_a
+      if params[:group_by].blank?
+      @groups = []
+      else
+      @groups = @members.each_slice(@groupsize.to_i).to_a
+      end
     end
   end
 
   def order
-    set_active_memeber
-    @members = @active_members.shuffle
+    set_active_member
+    if @team == nil?
+      @members = @active_members.shuffle
+    end
   end
 
   def pick
     set_team
-    @member = @team.member_ids.sample
+    if @team == nil?
+      @member = @team.member_ids.sample
+    end
   end
 
   def surprise
@@ -40,14 +46,17 @@ class PagesController < ApplicationController
     end
   end
 
-  def set_active_memeber
+  def set_active_member
     set_team
-    @members = @team.member_ids
-    @active_members = []
+    if @team == nil?
+      @members = @team.member_ids
 
-    @members.each do |member|
-      if Member.find(member).active_member == true
-        @active_members << member
+      @active_members = []
+
+      @members.each do |member|
+        if Member.find(member).active_member == true
+          @active_members << member
+        end
       end
     end
   end

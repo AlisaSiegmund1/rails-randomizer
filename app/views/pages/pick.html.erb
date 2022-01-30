@@ -1,10 +1,14 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <div class="row justify-content-md-center">
   <div class="col-lg-8 col-md-8 col-sm-12 justify-content-center d-flex">
-    <div class="content-container justify-content-center" style="margin: 200px">
+
+    <div class="content-container justify-content-center">
+    <% if @team == nil %>
+      <p>PLEASE CREATE AT LEAST ONE TEAM TO PROCEED </p>
+      <%= link_to "CREATE NEW TEAM", new_team_path, :class => "btn-black", :id => "new-team" %>
+    <% else %>
       <h2>
         <%= Member.find(@member).name.upcase %>
-
       </h2>
 
       <div class="btn-black mt-3 pl-3">
@@ -17,6 +21,6 @@
         <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
       </div>
     </div>
-
+      <% end %>
   </div>
 </div>

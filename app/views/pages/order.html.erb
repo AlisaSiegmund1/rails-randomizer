@@ -3,11 +3,11 @@
   <div class="col-lg-8 col-md-8 col-sm-12 justify-content-center d-flex">
 
     <div class="content-container justify-content-center">
-      <% if Team.all? %>
-      <p>You haven't created any teams yet</p>
+      <% if @team == nil %>
+        <p>PLEASE CREATE AT LEAST ONE TEAM TO PROCEED </p>
+        <%= link_to "CREATE NEW TEAM", new_team_path, :class => "btn-black", :id => "new-team" %>
       <% else %>
         <div style="text-align: center">
-         <!--  <span>[<%= @team.title %>]</span> -->
           <p>NEW RANDOM ORDER: </p>
         </div>
         <ol>
@@ -20,7 +20,6 @@
 
         <div class="btn-black">
           <%= link_to "AGAIN", order_path %>
-
         </div>
 
         <div class="loader-wrapper flex-column" id="mydiv">
