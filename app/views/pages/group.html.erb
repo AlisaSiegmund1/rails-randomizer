@@ -1,35 +1,34 @@
 <div class="row justify-content-md-center">
   <div class="col-lg-8 col-md-8 col-sm-12 justify-content-center d-flex">
     <div class="content-container">
-      <% if @team == nil %>
+      <% if Team.all.empty? %>
         <p>PLEASE CREATE AT LEAST ONE TEAM TO PROCEED </p>
         <%= link_to "CREATE NEW TEAM", new_team_path, :class => "btn-black", :id => "new-team" %>
-    <% else %>
-      <div class="groupsize-form" style="margin-top: 50px">
-        <div style="text-align: center">
-        <p>WHAT IS THE DESIRED GROUPSIZE?</p>
-      </div>
-        <form action="/group" method="get">
-          <input id="field" type="text" name="group_by" placeholder="For example '2'">
-          <input type="submit" class="btn-black" value="START">
-        </form>
-      </div>
-      <div class="results mt-3">
-        <ol>
-          <% @groups.each do |group| %>
-          <li>
-            <div class="d-flex">
-              <% group.each do |member| %>
-                <div class="member" style="padding: 10px">
-                  <%= Member.find(member).name%>
-                </div>
-                <% end %>
-            </li>
-            <% end %>
+      <% else %>
+        <div class="groupsize-form" style="margin-top: 50px">
+          <div style="text-align: center">
+            <p>WHAT IS THE DESIRED GROUPSIZE?</p>
           </div>
-        </ol>
+          <form action="/group" method="get">
+            <input id="field" type="text" name="group_by" placeholder="For example '2'">
+            <input type="submit" class="btn-black" value="START">
+          </form>
+          <div class="results mt-3">
+            <ol>
+              <% @groups.each do |group| %>
+              <li>
+                <div class="d-flex">
+                  <% group.each do |member| %>
+                    <div class="member" style="padding: 10px">
+                      <%= Member.find(member).name%>
+                    </div>
+                  <% end %>
+                </li>
+              <% end %>
+            </ol>
+          </div>
+        </div>
+    <% end %>
       </div>
-      <% end %>
     </div>
   </div>
-</div>

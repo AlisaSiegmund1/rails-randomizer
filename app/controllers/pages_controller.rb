@@ -6,51 +6,63 @@ class PagesController < ApplicationController
   end
 
   def group
-    set_active_member
+    set_active_members
     if @team == nil?
       @members = @active_members.shuffle
-      @groupsize = params[:group_by]
+    end
 
-      if params[:group_by].blank?
+    @groupsize = params[:group_by]
+
+    if params[:group_by].blank?
       @groups = []
-      else
+    else
       @groups = @members.each_slice(@groupsize.to_i).to_a
-      end
     end
   end
 
   def order
-    set_active_member
-    if @team == nil?
+    set_active_members
+    if !@team == nil?
       @members = @active_members.shuffle
     end
   end
 
   def pick
     set_team
-    if @team == nil?
+    if !@teams.nil?
       @member = @team.member_ids.sample
     end
+
   end
 
   def surprise
     @team = Team.all
   end
 
-  def set_team
-     @teams = Team.all
-    if Team.all.length <= 1 || Selection.all.empty?
-      @team = Team.last
+  def set_teams
+    if Team.all.empty?
+      @message = "PLEASE CREATE TEST"
     else
-      @team = Team.find(Selection.last.team_id)
+      @teams = Team.all
     end
   end
 
-  def set_active_member
-    set_team
-    if @team == nil?
-      @members = @team.member_ids
+  def set_team
+    set_teams
 
+    if !@teams.nil?
+      if @teams.length == 1 || Selection.all.empty?
+        @team = Team.last
+      else
+        @team = Team.find(Selection.last.team_id)
+      end
+    end
+  end
+
+  def set_active_members
+    set_team
+    if !@team.nil?
+      @members = @team.member_ids
       @active_members = []
 
       @members.each do |member|
@@ -64,7 +76,7 @@ class PagesController < ApplicationController
 
  def select_team
      @teams = Team.all.where(user: current_user)
-    if @teams.length <= 1 || Selection.all.empty?
+    if @teams.length == 1 || Selection.all.empty?
       @team = Team.last
     else
       @team = Team.find(Selection.last.team_id)
