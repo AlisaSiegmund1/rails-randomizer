@@ -19,4 +19,32 @@
 
 var loader = document.querySelector('#mydiv');
 
-setTimeout(function() { loader.hidden = true; }, 2000);
+// setTimeout(function unwait() { loader.hidden = true; }, 1000);
+
+
+// $(document).ready(function(){
+// $('#mydiv').fakeLoader({
+//     timeToHide:2200,
+//    });
+//   });
+
+
+// window.onload = (function () {
+//   console.log('first Test');
+//   console.log(document.readyState);
+//   setTimeout(function () {
+//       $('#mydiv').hide();
+//       console.log('Test');
+//   }, 2000);
+// });
+
+document.addEventListener("DOMContentLoaded", function(){
+  // console.log('TEST TEST DOCUMENT')
+});
+
+window.addEventListener("load", function(){
+  setTimeout(function() {
+  loader.style.display = "none";
+    }, 2000)
+});
+
