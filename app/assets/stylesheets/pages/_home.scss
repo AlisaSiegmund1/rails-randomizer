@@ -9,22 +9,13 @@
   height: 215px;
   width: 215px;
   position: relative;
+  text-align: center;
+  line-height: 215px;
   a {
-    position: absolute;
-    top: 43%;
-    left: 30%;
     color: black;
     font-size: 25px;
     font-weight: bolder;
      -webkit-transition: all 2s ease;
-  }
-}
-
-#surprise {
-  a {
-    position: absolute;
-    top: 43%;
-    left: 20%;
   }
 }
 
