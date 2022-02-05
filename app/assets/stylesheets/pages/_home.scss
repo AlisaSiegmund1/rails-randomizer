@@ -8,6 +8,7 @@
   margin: 10px;
   height: 215px;
   width: 215px;
+  border-radius: 120px;
   position: relative;
   text-align: center;
   line-height: 215px;
@@ -20,6 +21,36 @@
   }
 }
 
+#fun-1 {
+  background: repeating-linear-gradient(
+  45deg,
+  #EDEEC9,
+  #EDEEC9 10px,
+  #98C9A3 10px,
+  #98C9A3 20px
+);
+  // background-color: #EDEEC9;
+}
+
+#fun-2 {
+  background-color: #DDE7C7;
+}
+
+#fun-3 {
+  background: repeating-linear-gradient(
+  45deg,
+  #EDEEC9,
+  #EDEEC9 10px,
+  #BFD8BD 10px,
+  #BFD8BD 20px,
+  );
+  // background-color: #BFD8BD;
+}
+
+#fun-4 {
+  background-color: #98C9A3;
+}
+
 .function:hover {
   a {
     color: black;
@@ -27,6 +58,7 @@
     letter-spacing: 5px;
 
   }
+  box-shadow: 18px 11px 1px -11px #000000;
 }
 
 .function-container{
