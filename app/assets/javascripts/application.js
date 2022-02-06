@@ -17,9 +17,7 @@
 //= require_tree .
 
 
-var loader = document.querySelector('#mydiv');
-
-// setTimeout(function unwait() { loader.hidden = true; }, 1000);
+// var loader = document.querySelector('#mydiv');
 
 
 // $(document).ready(function(){
@@ -29,22 +27,19 @@ var loader = document.querySelector('#mydiv');
 //   });
 
 
-// window.onload = (function () {
-//   console.log('first Test');
-//   console.log(document.readyState);
-//   setTimeout(function () {
-//       $('#mydiv').hide();
-//       console.log('Test');
-//   }, 2000);
+// // window.onload = (function () {
+// //   console.log('first Test');
+// //   console.log(document.readyState);
+// //   setTimeout(function () {
+// //       $('#mydiv').hide();
+// //       console.log('Test');
+// //   }, 2000);
+// // });
+
+
+// window.addEventListener("load", function(){
+//   setTimeout(function() {
+//   loader.style.display = "none";
+//     }, 2000)
 // });
-
-document.addEventListener("DOMContentLoaded", function(){
-  // console.log('TEST TEST DOCUMENT')
-});
-
-window.addEventListener("load", function(){
-  setTimeout(function() {
-  loader.style.display = "none";
-    }, 2000)
-});
 

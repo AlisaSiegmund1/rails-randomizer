@@ -1,8 +1,11 @@
 <div class="row justify-content-md-center">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <div class="col-lg-8 col-md-8 col-sm-12 justify-content-center d-flex">
 
     <div class="content-container justify-content-center">
+      <div class="loader-wrapper flex-column" id="loader">
+        <p>WHO'S THE LUCKY ONE?</p>
+        <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+      </div>
     <% if Team.all.empty? %>
       <p>PLEASE CREATE AT LEAST ONE TEAM TO PROCEED </p>
       <%= link_to "CREATE NEW TEAM", new_team_path, :class => "btn-black", :id => "new-team" %>
@@ -11,16 +14,17 @@
         <%= Member.find(@member).name.upcase %>
       </h2>
 
-      <div class="btn-black mt-3 pl-3">
-        <%= link_to "AGAIN", pick_path %>
+    <div class="btn-black mt-3 pl-3">
+      <%= link_to "AGAIN", pick_path %>
+    </div>
 
-      </div>
-
-      <div class="loader-wrapper flex-column" id="mydiv">
-        <p>WHO'S THE LUCKY ONE?</p>
-        <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
-      </div>
     </div>
   <% end %>
   </div>
 </div>
+
+<script>
+ setTimeout(function() {
+  document.querySelector('#loader').style.display = "none";
+    }, 2000)
+</script>
