@@ -1,6 +1,10 @@
 <div class="row justify-content-md-center">
   <div class="col-lg-8 col-md-8 col-sm-12 justify-content-center d-flex">
     <div class="content-container justify-content-center">
+        <div class="loader-wrapper flex-column" id="loader">
+          <p>GENERATING NEW ORDER</p>
+          <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+        </div>
       <% if @team == nil %>
         <p>PLEASE CREATE AT LEAST ONE TEAM TO PROCEED </p>
         <%= link_to "CREATE NEW TEAM", new_team_path, :class => "btn-black", :id => "new-team" %>
@@ -20,10 +24,6 @@
           <%= link_to "AGAIN", order_path %>
         </div>
 
-        <div class="loader-wrapper flex-column" id="loader">
-          <p>GENERATING NEW ORDER</p>
-          <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
-        </div>
       <% end %>
     </div>
   </div>
