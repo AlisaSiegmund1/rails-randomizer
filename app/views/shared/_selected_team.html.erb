@@ -1,19 +1,20 @@
 <div class="row justify-content-md-center">
-  <div class="col-lg-8 col-md-8 col-sm-12 justify-content-center d-flex"><div class="selected-team">
-  <div style="font-weight: bolder; padding-right: 10px">
-    <% if @teams.empty? %>
-      <p>No Team available</p>
-    <% else %>
-      <%=@team.title %>
-    <% end %>
+  <div class="col-lg-8 col-md-8 col-sm-12 justify-content-center d-flex">
+    <div class="selected-team">
+      <div style="font-weight: bolder; padding-right: 10px">
+        <% if @teams.empty? %>
+          <p>No Team available</p>
+        <% else %>
+          <%=@team.title %>
+        <% end %>
+      </div>
+      <div>
+        <% if @teams.length > 1 %>
+          <%= link_to 'change team', new_selection_path %>
+        <% else %>
+          <%= link_to 'create new team', new_team_path %>
+        <% end %>
+      </div>
+    </div>
   </div>
-  <div>
-    <% if @teams.length > 1 %>
-      <%= link_to 'change team', new_selection_path%>
-    <% else %>
-      <%= link_to 'create new team', new_team_path %>
-    <% end %>
-  </div>
-</div>
-</div>
 </div>

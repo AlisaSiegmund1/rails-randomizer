@@ -5,6 +5,14 @@ class PagesController < ApplicationController
     select_team
   end
 
+  def order
+    set_active_members
+    if !@team == nil?
+      @members = @active_members.shuffle
+    end
+  end
+
+
   def group
     set_active_members
     if @team == nil?
@@ -16,21 +24,15 @@ class PagesController < ApplicationController
     if params[:group_by].blank?
       @groups = []
     else
-      @groups = @members.each_slice(@groupsize.to_i).to_a
+      @groups = @active_members.shuffle.each_slice(@groupsize.to_i).to_a
     end
   end
 
-  def order
-    set_active_members
-    if !@team == nil?
-      @members = @active_members.shuffle
-    end
-  end
 
   def pick
-    set_team
+    set_active_members
     if !@teams.nil?
-      @member = @team.member_ids.sample
+      @member = @active_members.sample
     end
 
   end
@@ -41,7 +43,7 @@ class PagesController < ApplicationController
 
   def set_teams
     if Team.all.empty?
-      @message = "PLEASE CREATE TEST"
+      @message = "PLEASE CREATE TEAM"
     else
       @teams = Team.all
     end
@@ -73,8 +75,7 @@ class PagesController < ApplicationController
     end
   end
 
-
- def select_team
+  def select_team
      @teams = Team.all.where(user: current_user)
     if @teams.length == 1 || Selection.all.empty?
       @team = Team.last
@@ -82,7 +83,6 @@ class PagesController < ApplicationController
       @team = Team.find(Selection.last.team_id)
     end
   end
-
 
   private
 
