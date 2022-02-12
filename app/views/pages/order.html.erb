@@ -5,7 +5,7 @@
           <p>GENERATING NEW ORDER</p>
           <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
         </div>
-      <% if @team == nil %>
+      <% if @team.blank? %>
         <p>PLEASE CREATE AT LEAST ONE TEAM TO PROCEED </p>
         <%= link_to "CREATE NEW TEAM", new_team_path, :class => "btn-black", :id => "new-team" %>
       <% else %>
